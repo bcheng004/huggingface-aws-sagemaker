@@ -1,0 +1,7 @@
+ag-news:
+  data_prefix: "news-hf"
+  data_folder: "ag_news_csv"
+  std_cols:
+    - "label"
+    - "title"
+    - "description"
