@@ -5,3 +5,26 @@ ag-news:
     - "label"
     - "title"
     - "description"
+  class_cols:
+    - "label"
+amazon-bort:
+  hyperparameters:
+    model_name_or_path: 'amazon/bort'
+    output_dir: '/opt/ml/model'
+    train_file: '/opt/ml/input/data/train/ag-train.csv'
+    validation_file: '/opt/ml/input/data/test/ag-test.csv'
+    do_train: True
+    do_eval: True
+    num_train_epochs: 1
+    save_total_limit: 1
+  git_config:
+    repo: 'https://github.com/huggingface/transformers.git'
+    branch: 'v4.6.1'
+  HuggingFace_estimator:
+    entry_point: 'run_glue.py'
+    source_dir: './examples/pytorch/text-classification'
+    instance_type: 'ml.g4dn.12xlarge'
+    instance_count: 1
+    transformers_version: '4.6.1'
+    pytorch_version: '1.7.1'
+    py_version: 'py36'
