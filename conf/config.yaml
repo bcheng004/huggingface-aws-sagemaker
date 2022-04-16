@@ -1,12 +1,12 @@
 ag-news:
-  data_prefix: "news-hf"
-  data_folder: "ag_news_csv"
+  data_prefix: 'news-hf'
+  data_folder: 'ag_news_csv'
   std_cols:
-    - "label"
-    - "title"
-    - "description"
+    - 'label'
+    - 'title'
+    - 'description'
   class_cols:
-    - "label"
+    - 'label'
 amazon-bort:
   hyperparameters:
     model_name_or_path: 'amazon/bort'
@@ -28,3 +28,9 @@ amazon-bort:
     transformers_version: '4.6.1'
     pytorch_version: '1.7.1'
     py_version: 'py36'
+  HuggingFace_model:
+    env:
+      HF_TASK: 'text-classification'
+    deploy:
+      initial_instance_count: 1
+      instance_type: 'ml.c5.large'
